@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-#if defined (__arm__) || defined (__aarch64__)
+#if defined (__arm__) || defined (__aarch64__) || defined (__amd64__)
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>

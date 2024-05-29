@@ -101,7 +101,7 @@ int         NormalRgaSetSrcActiveInfo(struct rga_req *req,
                                       unsigned int x_off, unsigned int y_off);
 
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
 int         NormalRgaSetSrcVirtualInfo(struct rga_req *req,
                                        unsigned long yrgb_addr,unsigned long uv_addr,unsigned long v_addr,
                                        unsigned int vir_w,unsigned int vir_h, unsigned int format,
@@ -119,7 +119,7 @@ int         NormalRgaSetDstActiveInfo(struct rga_req *req,
                                       unsigned int x_off, unsigned int y_off);
 
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
 int         NormalRgaSetDstVirtualInfo(struct rga_req *msg,
                                        unsigned long yrgb_addr,unsigned long uv_addr,unsigned long v_addr,
                                        unsigned int  vir_w,    unsigned int vir_h,
@@ -142,7 +142,7 @@ int         NormalRgaSetPatActiveInfo(struct rga_req *req,
                                       unsigned int width, unsigned int height,
                                       unsigned int x_off, unsigned int y_off);
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
 int         NormalRgaSetPatVirtualInfo(struct rga_req *msg,
                                        unsigned long yrgb_addr,unsigned long uv_addr,unsigned long v_addr,
                                        unsigned int  vir_w,    unsigned int vir_h,
@@ -156,7 +156,7 @@ int         NormalRgaSetPatVirtualInfo(struct rga_req *msg,
                                        unsigned int  format, unsigned char a_swap_en);
 #endif
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
 int         NormalRgaSetRopMaskInfo(struct rga_req *msg,
                                     unsigned long rop_mask_addr,unsigned int rop_mask_endian_mode);
 #else
@@ -266,7 +266,7 @@ int         NormalRgaSetPreScalingMode(
 
 /* LUT table addr      */
 /* 1bpp/2bpp/4bpp/8bpp */
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
 int         NormalRgaUpdatePaletteTableMode(
     struct rga_req *msg,unsigned long LUT_addr,unsigned int palette_mode);
 #else
@@ -290,7 +290,7 @@ int NormalRgaFullColorSpaceConvert(struct rga_req *msg, int color_space_mode);
 
 int NormalRgaDitherMode(struct rga_req *msg, rga_info *dst, int format);
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
 int         NormalRgaMmuInfo(struct rga_req *msg,
                              unsigned char  mmu_en,   unsigned char  src_flush,
                              unsigned char  dst_flush,unsigned char  cmd_flush,
