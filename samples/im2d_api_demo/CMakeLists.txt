@@ -50,7 +50,7 @@ if(CMAKE_BUILD_TARGET STREQUAL cmake_linux)
 endif()
 
 if (EXISTS ${LIBRGA_FILE_LIB}/librga.so)
-	message("load ${LIBRGA_FILE_LIB}/librga.so")
+    message("load ${LIBRGA_FILE_LIB}/librga.so")
     set(RGA_LIB ${LIBRGA_FILE_LIB}/librga.so)
 else ()
     set(RGA_LIB rga)
@@ -70,9 +70,9 @@ set(IM2D_DEMO_INCLUDE
     ../../include
     ../../im2d_api)
 
-if (NOT DEFINED RGA_SAMPLES_UTILS_COMPILED)
+#if (NOT DEFINED RGA_SAMPLES_UTILS_COMPILED)
     include(${CMAKE_CURRENT_SOURCE_DIR}/../utils/CMakeLists.txt)
-endif()
+#endif()
 
 add_executable(${IM2D_DEMO_NAME} ${IM2D_DEMO_SRCS})
 target_include_directories(${IM2D_DEMO_NAME} PUBLIC ${IM2D_DEMO_INCLUDE})
