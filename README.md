@@ -1,4 +1,4 @@
-# librga
+# linux-rga
 
 RGA (Raster Graphic Acceleration Unit) is an independent 2D hardware accelerator that can be used to accelerate point/line drawing and perform common 2D graphics operations such as image scaling, rotation, bitBlt, alpha blending, etc. This repository code implements the RGA user space driver and provides a series of 2D graphics operation APIs.
 
