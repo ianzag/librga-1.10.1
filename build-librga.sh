@@ -1,0 +1,26 @@
+#!/bin/bash
+
+VERSION=1.10.1
+BRANCH=librga-$VERSION
+#BUILD_TYPE=Debug
+BUILD_TYPE=Release
+ROOT_DIR=${PWD}
+SOURCES_DIR=$ROOT_DIR/$BRANCH
+BUILD_DIR=$ROOT_DIR/build/$BRANCH/$BUILD_TYPE
+INSTALL_DIR=/usr/local
+
+echo "SOURCES_DIR: $SOURCES_DIR"
+echo "BUILD_DIR: $BUILD_DIR"
+
+cmake -S $SOURCES_DIR \
+    -G Ninja \
+    -B $BUILD_DIR \
+    -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+    -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR \
+    -DCMAKE_BUILD_TARGET=cmake_linux \
+    -DCMAKE_INSTALL_INCLUDEDIR=include/rga \
+|| exit 1
+
+cmake --build $BUILD_DIR || exit 1
+
+echo "Done"
