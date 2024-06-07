@@ -25,7 +25,7 @@ extern "C"
 #endif
 
 typedef struct rga2_img_info_t {
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
     unsigned long yrgb_addr;      /* yrgb    mem addr         */
     unsigned long uv_addr;        /* cb/cr   mem addr         */
     unsigned long v_addr;         /* cr      mem addr         */
@@ -89,7 +89,7 @@ typedef struct rga2_fading {
 
 typedef struct rga2_mmu {
     unsigned char mmu_en;
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
     unsigned long base_addr;
 #else
     unsigned int base_addr;
@@ -119,7 +119,7 @@ struct rga2_req {
     rga2_img_info_t dst;                   /* dst image info */
     rga2_img_info_t pat;                   /* patten image info */
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
     unsigned long rop_mask_addr;          /* rop4 mask addr */
     unsigned long LUT_addr;               /* LUT addr */
 #else

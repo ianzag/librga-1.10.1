@@ -1077,7 +1077,7 @@ int RgaBlit(rga_info *src, rga_info *dst, rga_info *src1) {
     if (ctx->mVersion <= (float)1.003) {
         srcMmuFlag = dstMmuFlag = src1MmuFlag = 1;
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
         NormalRgaSetSrcVirtualInfo(&rgaReg, (unsigned long)srcBuf,
                                    (unsigned long)srcBuf + srcVirW * srcVirH,
                                    (unsigned long)srcBuf + srcVirW * srcVirH * 5/4,
@@ -1134,7 +1134,7 @@ int RgaBlit(rga_info *src, rga_info *dst, rga_info *src1) {
                 srcMmuFlag = 1;
             if (src && srcBuf == src->phyAddr)
                 srcMmuFlag = 0;
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
             NormalRgaSetSrcVirtualInfo(&rgaReg, (unsigned long)srcBuf,
                                        (unsigned long)srcBuf + srcVirW * srcVirH,
                                        (unsigned long)srcBuf + srcVirW * srcVirH * 5/4,
@@ -1165,7 +1165,7 @@ int RgaBlit(rga_info *src, rga_info *dst, rga_info *src1) {
                     src1MmuFlag = 1;
                 if (src1Buf == src1->phyAddr)
                     src1MmuFlag = 0;
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
                 NormalRgaSetPatVirtualInfo(&rgaReg, (unsigned long)src1Buf,
                                            (unsigned long)src1Buf + src1VirW * src1VirH,
                                            (unsigned long)src1Buf + src1VirW * src1VirH * 5/4,
@@ -1196,7 +1196,7 @@ int RgaBlit(rga_info *src, rga_info *dst, rga_info *src1) {
                 dstMmuFlag = 1;
             if (dst && dstBuf == dst->phyAddr)
                 dstMmuFlag = 0;
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
             NormalRgaSetDstVirtualInfo(&rgaReg, (unsigned long)dstBuf,
                                        (unsigned long)dstBuf + dstVirW * dstVirH,
                                        (unsigned long)dstBuf + dstVirW * dstVirH * 5/4,
@@ -1246,7 +1246,7 @@ int RgaBlit(rga_info *src, rga_info *dst, rga_info *src1) {
         if (dst && dstFd == dst->fd)
             dstMmuFlag = dst->mmuFlag ? 1 : 0;
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
         NormalRgaSetSrcVirtualInfo(&rgaReg, srcFd != -1 ? srcFd : 0,
                                    (unsigned long)srcBuf,
                                    (unsigned long)srcBuf + srcVirW * srcVirH,
@@ -1605,7 +1605,7 @@ int RgaCollorFill(rga_info *dst) {
     clip.ymax = dstActH - 1;
 
     if (ctx->mVersion <= 1.003) {
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
         /*dst*/
         NormalRgaSetDstVirtualInfo(&rgaReg, (unsigned long)dstBuf,
                                    (unsigned long)dstBuf + dstVirW * dstVirH,
@@ -1637,7 +1637,7 @@ int RgaCollorFill(rga_info *dst) {
                 dstMmuFlag = 1;
             if (dst && dstBuf == dst->phyAddr)
                 dstMmuFlag = 0;
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
             NormalRgaSetDstVirtualInfo(&rgaReg, (unsigned long)dstBuf,
                                        (unsigned long)dstBuf + dstVirW * dstVirH,
                                        (unsigned long)dstBuf + dstVirW * dstVirH * 5/4,
@@ -1662,7 +1662,7 @@ int RgaCollorFill(rga_info *dst) {
             dstMmuFlag = dstType ? 1 : 0;
         if (dst && dstFd == dst->fd)
             dstMmuFlag = dst->mmuFlag ? 1 : 0;
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
         /*dst*/
         NormalRgaSetDstVirtualInfo(&rgaReg, dstFd != -1 ? dstFd : 0,
                                    (unsigned long)dstBuf,
@@ -2091,7 +2091,7 @@ int RgaCollorPalette(rga_info *src, rga_info *dst, rga_info *lut) {
     if (ctx->mVersion <= (float)1.003) {
         srcMmuFlag = dstMmuFlag = lutMmuFlag = 1;
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
         NormalRgaSetSrcVirtualInfo(&rgaReg, (unsigned long)srcBuf,
                                    (unsigned long)srcBuf + srcVirW * srcVirH,
                                    (unsigned long)srcBuf + srcVirW * srcVirH * 5/4,
@@ -2146,7 +2146,7 @@ int RgaCollorPalette(rga_info *src, rga_info *dst, rga_info *lut) {
                 srcMmuFlag = 1;
             if (src && srcBuf == src->phyAddr)
                 srcMmuFlag = 0;
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
             NormalRgaSetSrcVirtualInfo(&rgaReg, (unsigned long)srcBuf,
                                        (unsigned long)srcBuf + srcVirW * srcVirH,
                                        (unsigned long)srcBuf + srcVirW * srcVirH * 5/4,
@@ -2176,7 +2176,7 @@ int RgaCollorPalette(rga_info *src, rga_info *dst, rga_info *lut) {
                 dstMmuFlag = 1;
             if (dst && dstBuf == dst->phyAddr)
                 dstMmuFlag = 0;
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
             NormalRgaSetDstVirtualInfo(&rgaReg, (unsigned long)dstBuf,
                                        (unsigned long)dstBuf + dstVirW * dstVirH,
                                        (unsigned long)dstBuf + dstVirW * dstVirH * 5/4,
@@ -2206,7 +2206,7 @@ int RgaCollorPalette(rga_info *src, rga_info *dst, rga_info *lut) {
                 lutMmuFlag = 1;
             if (lut && lutBuf == lut->phyAddr)
                 lutMmuFlag = 0;
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
             NormalRgaSetPatVirtualInfo(&rgaReg, (unsigned long)lutBuf,
                                        (unsigned long)lutBuf + lutVirW * lutVirH,
                                        (unsigned long)lutBuf + lutVirW * lutVirH * 5/4,
@@ -2254,7 +2254,7 @@ int RgaCollorPalette(rga_info *src, rga_info *dst, rga_info *lut) {
         if (lut && lutFd == lut->fd)
             lutMmuFlag = lut->mmuFlag ? 1 : 0;
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
         NormalRgaSetSrcVirtualInfo(&rgaReg, srcFd != -1 ? srcFd : 0,
                                    (unsigned long)srcBuf,
                                    (unsigned long)srcBuf + srcVirW * srcVirH,

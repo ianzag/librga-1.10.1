@@ -305,7 +305,7 @@ int NormalRgaSetFdsOffsets(struct rga_req *req,
     return 0;
 }
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
 int NormalRgaSetSrcVirtualInfo(struct rga_req *req,
                                unsigned long yrgb_addr,unsigned long uv_addr,unsigned long v_addr,
                                unsigned int vir_w,unsigned int vir_h, unsigned int format,
@@ -339,7 +339,7 @@ int NormalRgaSetDstActiveInfo(struct rga_req *req,
     return 1;
 }
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
 int NormalRgaSetDstVirtualInfo(struct rga_req *msg,
                                unsigned long yrgb_addr,unsigned long uv_addr,unsigned long v_addr,
                                unsigned int  vir_w,    unsigned int vir_h,
@@ -380,7 +380,7 @@ int NormalRgaSetPatActiveInfo(struct rga_req *req,
     return 1;
 }
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
 int NormalRgaSetPatVirtualInfo(struct rga_req *msg,
                                unsigned long yrgb_addr,unsigned long uv_addr,unsigned long v_addr,
                                unsigned int  vir_w,    unsigned int vir_h,
@@ -424,7 +424,7 @@ int NormalRgaSetPatInfo(struct rga_req *msg,
     return 1;
 }
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
 int NormalRgaSetRopMaskInfo(struct rga_req *msg,
                             unsigned long rop_mask_addr,unsigned int rop_mask_endian_mode)
 #else
@@ -774,7 +774,7 @@ int NormalRgaSetPreScalingMode(
 
 /* LUT table addr      */
 /* 1bpp/2bpp/4bpp/8bpp */
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
 int NormalRgaUpdatePaletteTableMode(
     struct rga_req *msg,unsigned long LUT_addr,unsigned int palette_mode)
 #else
@@ -806,7 +806,7 @@ int NormalRgaUpdatePattenBuffMode(struct rga_req *msg,
     return 1;
 }
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
 int NormalRgaMmuInfo(struct rga_req *msg,
                      unsigned char  mmu_en,   unsigned char  src_flush,
                      unsigned char  dst_flush,unsigned char  cmd_flush,
@@ -1149,7 +1149,7 @@ static inline void NormalRgaCompatModeConvertRga2Fading(rga2_fading_t *fading, F
 
 static inline void NormalRgaCompatModeConvertRga2Mmu(rga2_mmu_t *mmu, MMU *orig_mmu) {
     mmu->mmu_en = orig_mmu->mmu_en;
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
     mmu->base_addr = (unsigned long)orig_mmu->base_addr;
 #else
     mmu->base_addr = (unsigned int)orig_mmu->base_addr;
@@ -1179,7 +1179,7 @@ void NormalRgaCompatModeConvertRga2(rga2_req *req, rga_req *orig_req) {
     NormalRgaCompatModeConvertRga2ImgeInfo(&req->dst, &orig_req->dst);
     NormalRgaCompatModeConvertRga2ImgeInfo(&req->pat, &orig_req->pat);
 
-#if defined(__arm64__) || defined(__aarch64__)
+#if defined(__arm64__) || defined(__aarch64__) || defined(__amd64__)
     req->rop_mask_addr = (unsigned long)orig_req->rop_mask_addr;
     req->LUT_addr = (unsigned long)orig_req->LUT_addr;
 #else
