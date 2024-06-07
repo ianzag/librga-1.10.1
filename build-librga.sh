@@ -1,6 +1,7 @@
 #!/bin/bash
 
 VERSION=1.10.1
+#VERSION=1.9.3
 BRANCH=librga-$VERSION
 #BUILD_TYPE=Debug
 BUILD_TYPE=Release
