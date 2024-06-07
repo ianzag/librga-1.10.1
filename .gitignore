@@ -1,3 +1,7 @@
 
 build/
+librga*.deb
+librga*.build
+librga*.buildinfo
+librga*.changes
 librga-1.10.1/samples/sample_file/*.bmp
