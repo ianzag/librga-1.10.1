@@ -19,6 +19,7 @@
 #ifndef _rk_drm_rga_
 #define _rk_drm_rga_
 
+#include <stddef.h>
 #include <stdint.h>
 #include <errno.h>
 #include <sys/cdefs.h>
